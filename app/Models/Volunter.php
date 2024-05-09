@@ -8,6 +8,11 @@ use Illuminate\Notifications\Notifiable;
 class Volunter extends Model
 {
     use HasFactory, Notifiable;
+    protected $fillable = [
+        'user_id',
+        'activates_id'
+    ];
+
    public function user(){
     return $this->belongsTo(User::class, 'user_id');
    }

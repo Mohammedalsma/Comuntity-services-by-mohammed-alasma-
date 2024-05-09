@@ -24,9 +24,11 @@ class ActivatesFactory extends Factory
             'name'=>$this->faker->word(),
             'location'=>$this->faker->word(),
             'category'=>$this->faker->word(),
-            'type_of_work'=>$this->faker->word(),
+            'type_of_work'=>'voulnter',
+            'photo'=>'',
             'org_id' => Organization::factory(),
-            'descrption'=> $this->faker->paragraph(3)
+            'descrption'=> $this->faker->paragraph(3),
+            'activates_start_at'=>$this->faker->dateTimeThisYear(),
             
         ];
     }

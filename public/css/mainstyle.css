@@ -1,0 +1,163 @@
+body{
+    background-color: ghostwhite;
+}
+.index{
+    margin: auto;
+    margin-left: 25%;
+    font-size: 25px;
+}
+
+img{
+    width: 45%;
+    height: 15%;
+    margin-left: 10%;
+}
+.headline{
+    color: rgb(0, 0, 0);
+    background-color: rgb(65, 210, 24);
+    padding: 5px;
+    margin: auto;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.469);
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 250px;
+}
+.headline a{
+   
+    margin: 0.5%;
+}
+button{
+    color: rgb(0, 0, 0);
+    background-color: rgb(65, 210, 24);
+    
+}
+body{
+    margin: auto;
+}
+form,a{
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    margin-right: 29%;
+    
+}
+.outline{
+    outline: 5px double  green;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.469);
+}
+
+.link a:visited, .link a:link{
+    color: rgb(22, 25, 23);
+    text-decoration: none;
+    background-color: rgb(65, 210, 24);
+    padding: 1%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.067);
+}
+.link a:hover{
+   
+    background-color: gold;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.469)
+}
+.link a:active{
+    background-color: green;
+}
+h1,p,h3{
+    margin-left: 7%;
+}
+.category, .about{
+    text-decoration: underline;
+}
+input, label{
+    padding-right: 500px;
+    margin: 1%;
+}
+.sesson-button{
+    margin-left: 23.5%;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.104);
+    padding: 0.8%;
+    
+}.sesson-button:hover{
+    background-color: gold;
+}.sesson-button:active{
+    background-color: green;
+}
+.sesson-link{
+    margin-left: 22%;
+    margin-top: 15%;
+    text-decoration: none;
+    color: black;
+}.sesson-link:hover{
+    text-decoration: underline;
+    color: rgb(32, 92, 194);
+    
+}.sesson-link:active{
+    color: rgb(41, 178, 0);
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    height: 450px;
+    width: 500px;
+    padding: 2%;
+    border-radius: 25px;
+    background-color: white;
+}
+.card img{
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.074);
+    border-radius: 25px;
+    width: 100%;
+    height: 45%;
+    margin: auto;
+}
+.column {
+    float: left;
+    padding: 0 10px;
+   
+    margin-bottom: 2%;
+    margin-top: 2%;
+    margin-left: 7%;
+  }
+  .row {margin: 0 -5px;}
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+.card h1,.card p,.card h3{
+    margin-left: 1%;
+}
+
+.card:hover{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.469)
+}
+
+.card-link {
+   color: black;
+   text-decoration: none;
+    }
+.errortext{
+    color: red;
+}
+.owerlink{
+    margin: 0;
+    text-decoration: none;
+    color: black;
+}
+.owerlink:hover{
+    text-decoration: underline;
+    color: rgb(32, 92, 194);
+    
+}.owerlink:active{
+    color: rgb(41, 178, 0);
+}
+.activateimage{
+    width: 35%;
+    height: 225px;
+    margin-left: 7%;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.074);
+    border-radius: 10px;
+}

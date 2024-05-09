@@ -5,51 +5,73 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Activates;
 use App\Models\Organization;
+use App\Models\User;
+use App\Models\Volunter;
+use GuzzleHttp\Psr7\Response;
+use Illuminate\Http\Response as HttpResponse;
+use Symfony\Component\HttpFoundation\Response as HttpFoundationResponse;
 
 class ActivateController extends Controller
 {
+  
+     
+    
     public function index(){
-        return view('Main-page',[
+        return view('index',[
             'activates' => Activates::all()
         ]);
     }
+    public function allactivates(){
+        
+        return view('Main-page',[
+            'activates' => Activates::all(),
+        ]);
+    }
     public function showActivate(Activates $activate){
-        return view('activate_page',[
+
+        return view('activates.activate_page',[
             'activate' => $activate,
-            'org'=>Organization::find($activate->org_id)
+            'org'=>Organization::find($activate->org_id),
         ]);    
     }
     public function showCreateActivate(){
-        return view('createact');
+        return view('activates.createact');
     }
-    public function CreateActivate(){
-        $org = Organization::factory()->create();
-      
+    public function CreateActivate(Request $request){
+        $org =  Organization::where("owner_id", auth()->user()->id)->first(); 
         $attributes = request()->validate([
             'name'=>'required|max:255',
             'location'=>['required','max:255'],
             'type_of_work'=>'required|max:255',
             'category'=>'required|max:255',
-            'descrption'=>'required|min:7|max:255'
-            
+            'descrption'=>'required|min:7|max:255',
+            'activates_start_at'=>''
             
          ]);
          $attributes += [
             
-            'org_id'=>$org->id,
+            'org_id'=> $org->id
          ];
-         Activates::create($attributes);
-         return redirect('/'); 
+        $requestdata = $request->all();
+   $fileName = time().$request->file('photo')->getClientOriginalName();
+   $path = $request->file('photo')->storeAs('images',$fileName,'public');
+    $attributes += [
+    'photo' => '/storage/'.$path];
+   Activates::create($attributes);
+        return redirect('Main-page');
     }
     public function showdelete(Activates $activate){
-        return view('deleteact',[
+        return view('activates.deleteact',[
             'activate' => $activate,
             ]
         );
     }
     public function DeleteAct(Activates $activate){
+        
+     Volunter::where("activates_id", $activate->id)->delete();
+        
         $activate->delete();
-        return redirect('/');   
+        return redirect('/Main-page');   
     }
-    
+ 
 }

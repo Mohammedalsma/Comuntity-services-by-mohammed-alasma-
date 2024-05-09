@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->date('birthday');
             $table->string('number');
+            $table->char('isowner');
             $table->string('profile_img')->nullable();
             $table->string('password');
             $table->rememberToken();

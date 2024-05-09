@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,12 +18,10 @@ class OrganizationFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=>$this->faker->word(),
+            'org_name'=>$this->faker->word(),
             'location'=>$this->faker->word(),
-            'location'=>$this->faker->word(),
-            'phone'=>fake()->phoneNumber(),
-            'descrption'=> $this->faker->paragraph(2)
-            
+            'descrption'=> $this->faker->paragraph(2),
+            'owner_id' => User::factory()
         ];
     }
 }

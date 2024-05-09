@@ -20,6 +20,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'number',
+        'birthday',
+        'isowner'
     ];
 
     /**
@@ -46,5 +49,8 @@ class User extends Authenticatable
     }
     public function volunter(){
         return $this->hasOne(User::class);
+       }
+       public function organization(){
+        return $this->hasOne(User::class,'owner_id');
        }
 }

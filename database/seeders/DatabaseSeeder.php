@@ -22,9 +22,8 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         Activates::truncate();
         Organization::truncate();
-        //---------------------------------------------------
-        User::factory(4)->create();
-        Organization::factory(4)->create();
+        //--------------------------------------------------- 
+        
         Activates::factory(4)->create();
         Volunter::factory(4)->create();
        

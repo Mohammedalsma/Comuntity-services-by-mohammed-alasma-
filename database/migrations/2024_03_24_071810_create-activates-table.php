@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('location');
             $table->string('type_of_work');
             $table->string('category');
+            $table->string('photo', 300);
             $table->foreignId('org_id');
             $table->string('descrption');
             $table->timestamp('activates_start_at')->nullable();
-            $table->timestamp('ending_at')->nullable();
             $table->timestamps();
         });
     }
