@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivateController;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\OragnizationController;
+use App\Http\Controllers\SeesionsController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\VolunterController;
@@ -22,14 +23,14 @@ Route::get('deleteact/{activate:name}', [ActivateController::class,'showdelete']
 Route::post('deleteact/{activate:name}', [ActivateController::class,'DeleteAct'])->middleware('admin');
 Route::post('createact', [ActivateController::class,'CreateActivate']);
 
-Route::get('login', [loginController::class,'login'])->middleware('guest');
-Route::post('login', [loginController::class,'check'])->middleware('guest');
-Route::get('logout', [loginController::class,'areyousurepage'])->middleware('auth');
-Route::post('logout', [loginController::class,'exit'])->middleware('auth');
+Route::get('login', [SeesionsController::class,'login'])->middleware('guest');
+Route::post('login', [SeesionsController::class,'check'])->middleware('guest');
+Route::get('logout', [SeesionsController::class,'areyousurepage'])->middleware('auth');
+Route::post('logout', [SeesionsController::class,'exit'])->middleware('auth');
 
 
-Route::get('signup', [SignupController::class,'showsignup'])->middleware('guest');
-Route::post('signup', [SignupController::class,'Createuser'])->middleware('guest');
+Route::get('signup', [SeesionsController::class,'showsignup'])->middleware('guest');
+Route::post('signup', [SeesionsController::class,'Createuser'])->middleware('guest');
 
 Route::get('voulnter/{activate:name}', [VolunterController::class,'show'])->middleware('auth');
 Route::post('createvoulnter/{activate:name}', [VolunterController::class,'createvoulnter'])->middleware('auth');

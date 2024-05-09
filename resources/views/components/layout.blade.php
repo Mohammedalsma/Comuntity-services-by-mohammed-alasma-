@@ -18,7 +18,7 @@
     <a href="/">home page</a>
     <a href="/Main-page">Activates</a>
     @auth
-    @if  (auth()->user()?->name == 'admin' || auth()->user()?->isowner =='1')
+    @if  ( auth()->user()?->isowner =='1')
     <a href="/createact">create </a>
     @endif
     <a href="/logout">logout</a>

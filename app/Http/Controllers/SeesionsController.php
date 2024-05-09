@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Activates;
 use App\Models\Organization;
 use App\Models\User;
+use Illuminate\Validation\ValidationException;
 
-class SignupController extends Controller
+class SeesionsController extends Controller
 {
     public function showsignup(){
         return view('seesions.signup');
@@ -27,5 +28,29 @@ class SignupController extends Controller
          auth()->attempt($attributes);
          return redirect('/Main-page'); 
     }
+    
+   public function login(){
+    return view('seesions.login');
+   }
+   public function check(){
+    $attributes = request()->validate([
+        'email'=>'required|email',
+        'password'=>'required'
+     ]);
+     if(auth()->attempt($attributes)){
+        return redirect('/Main-page');
+     }
+     throw ValidationException::withMessages([
+        'email'=>'email or the password is incorrect, please try agian',
+        
+     ]);
+   }
+   public function areyousurepage(){
+      return view('seesions.logout');
+   }
+   public function exit(){
+    auth()->logout();
+    return redirect('/');
+   }
    
 }
