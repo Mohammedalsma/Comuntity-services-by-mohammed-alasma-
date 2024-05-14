@@ -53,4 +53,6 @@ class User extends Authenticatable
        public function organization(){
         return $this->hasOne(User::class,'owner_id');
        }
+
 }
+

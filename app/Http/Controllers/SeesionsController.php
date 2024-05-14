@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Activates;
-use App\Models\Organization;
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
 
 class SeesionsController extends Controller
 {
-    public function showsignup(){
+    public function showsignup( Request $request){      
         return view('seesions.signup');
     }
     public function Createuser(){
@@ -33,13 +31,17 @@ class SeesionsController extends Controller
     return view('seesions.login');
    }
    public function check(){
+    
     $attributes = request()->validate([
         'email'=>'required|email',
         'password'=>'required'
      ]);
+
      if(auth()->attempt($attributes)){
-        return redirect('/Main-page');
-     }
+
+         return redirect('/Main-page');
+      }
+
      throw ValidationException::withMessages([
         'email'=>'email or the password is incorrect, please try agian',
         
@@ -52,5 +54,5 @@ class SeesionsController extends Controller
     auth()->logout();
     return redirect('/');
    }
-   
+  
 }

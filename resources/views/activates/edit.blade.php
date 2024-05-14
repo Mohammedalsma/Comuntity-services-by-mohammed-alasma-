@@ -1,7 +1,6 @@
 <x-layout>
-
-    <h1 >fill the follwing to create an new activate</h1>
-<form method="POST" action="/createact/" class="outline"  enctype="multipart/form-data">
+<h1 >edit the activate</h1>
+<form method="POST" action="/update/{{$activate->name}}" class="outline"  enctype="multipart/form-data">
     @csrf
     <div >
         <label 
@@ -10,14 +9,16 @@
     @error('name')
 <p class="errortext">{{$message}}</p>
 @enderror
+    
+</label>
 </div>
 <div>
-</label>
+
 <input
 type="text"
 name="name"
 id="name"
-value="{{old('name')}}"
+value="{{$activate->name}}"
 required>
     </div>
 <div >
@@ -34,17 +35,24 @@ required>
 type="text"
 name="location"
 id="location"
-value="{{old('location')}}"
+value="{{$activate->location}}"
 required>
     </div>
     <div >
         <div>
     <label>the activate fill under dontion or vaulter work </label>
         </div>
-<input type="radio" id="dontion" name="type_of_work" value="dontion">
+        @if ($activate->type_of_work == 'dontion')
+<input type="radio" id="dontion" name="type_of_work" value="dontion" checked>
 <label for="dontion">dontion</label><br>
 <input type="radio" id="vaulter" name="type_of_work" value="vaulter">
 <label for="vaulter">vaulter</label><br>
+@elseif($activate->type_of_work == 'vaulter')
+<input type="radio" id="dontion" name="type_of_work" value="dontion" >
+<label for="dontion">dontion</label><br>
+<input type="radio" id="vaulter" name="type_of_work" value="vaulter" checked>
+<label for="vaulter">vaulter</label><br>
+@endif
     </div>
     
     <div >
@@ -61,7 +69,7 @@ required>
 type="text"
 name="category"
 id="category"
-value="{{old('category')}}"
+value="{{$activate->category}}"
 required>
     </div>
     <div >
@@ -78,7 +86,7 @@ required>
 type="text"
 name="descrption"
 id="descrption"
-value="{{old('descrption')}}"
+value="{{$activate->descrption}}"
 required>
     </div>
     <label 
@@ -91,15 +99,15 @@ required>
 type="date"
 name="activates_start_at"
 id="activates_start_at"
-value="{{old('activates_start_at')}}"
+value="{{$activate->activates_start_at}}"
 required>
     </div>
     
     <div >
-    <input type="file" required  name="photo"  id="photo">
+    <input type="file" name="photo"  required id="photo" value="{{$activate->photo}}">
 <button type="submit" class="sesson-button">
     submit
 </button>
     </div>
 </form>
-    </x-layout>
+</x-layout>

@@ -31,6 +31,8 @@
 <br/>
 @if  (auth()->user()?->name == 'admin' || auth()->user()?->id ==$org->owner_id)
 <p><a href="\deleteact\{{$activate->name}}">click here to delete the Activate</a></p>
+<br/>
+<p><a href="\edit\{{$activate->name}}">click here to edit the Activate</a></p>
     @endif
 @endauth
 </div>
